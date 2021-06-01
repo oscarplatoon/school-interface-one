@@ -1,4 +1,4 @@
-from person import Person
+from classes.person import Person
 import csv
 import os
 my_path = os.path.abspath(os.path.dirname(__file__))
@@ -12,7 +12,8 @@ class Staff(Person):
         with open(path) as csv_file:
             csv_reader = csv.DictReader(csv_file)
             for row in csv_reader:
-                output_list.append(row)
+                output_list.append(Staff(**row))
+            return output_list
 
 
     def __init__(self, name, age, role, password, employee_id):
