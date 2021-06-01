@@ -9,13 +9,13 @@ class Student(Person):
 
     @classmethod
     def all_students():
-        students = {}
+        students = []
         my_path = os.path.abspath(os.path.dirname(__file__))
         path = os.path.join(my_path, "../data/students.csv")
         with open(path) as csvfile:
             csv_reader = csv.Dictreader(csvfile)
             for row in csv_reader:
-                students.update(Student(**dict(row)))
+                students.append(Student(**dict(row)))
                 return students
 
 
