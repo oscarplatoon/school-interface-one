@@ -1,4 +1,4 @@
-from classes.person import Person
+from .person import Person
 import csv
 import os
 my_path = os.path.abspath(os.path.dirname(__file__))
