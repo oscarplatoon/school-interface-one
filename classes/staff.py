@@ -2,12 +2,12 @@ import os
 import csv
 
 class Staff:
-    def __init__(self, **staff_info):
+    def __init__(self, name, age, password, role, employee_id):
         self.name = name
         self.age = age
         self.password = password
         self.role = role
-        self.school_id = school_id
+        self.employee_id = employee_id
     
     @classmethod
     def all_staff(cls):
@@ -17,5 +17,5 @@ class Staff:
         with open(path) as csv_file:
             csv_reader = csv.DictReader(csv_file)
             for line in csv_reader:
-                staff_list.append(line)
+                staff_list.append(Staff(line['name'], line['age'], line['password'], line['role'], line['employee_id']))
             return staff_list
