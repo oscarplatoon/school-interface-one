@@ -1,5 +1,4 @@
-from school import School 
+from classes.school import School 
+from classes.staff import Staff
+from classes.student import Student
 
-school = School('Ridgemont High') 
-
-print(school.name)
