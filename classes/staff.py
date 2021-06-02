@@ -2,9 +2,9 @@
 # from classes.person import Person
 import csv
 import os
-
-with open('../data/staff.csv') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=' ', quotechar='|')
+with open('data/staff.csv') as csv_file:
+    csv_reader = csv.reader(csv_file)
+    
     for row in csv_reader:
         print(row)
         # print(', '.join(row))
@@ -16,6 +16,7 @@ class Staff:
         self.role = role
         self.employee_id = employee_id
         self.password = password
+        # self.staff = Staff.all_staff()
 
 Staff.all_staff()
 
