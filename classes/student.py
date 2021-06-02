@@ -25,8 +25,11 @@ class Student:
         self.role = kwargs['role']
         self.school_id = kwargs['school_id']
 
+    def __str__(self):
+        return f"My name is {self.name} and my age is {self.age}. I am a {self.role} and my ID is {self.school_id}."
 
     
 
-students = Student.all_students()
-print(students)
+# students = Student.all_students()
+# for x in students:
+#     print(x)
