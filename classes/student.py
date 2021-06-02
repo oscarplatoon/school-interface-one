@@ -17,3 +17,7 @@ class Student(Person):
             for row in csv_reader:
                 students.append(Student(**dict(row)))
         return students
+    
+    def __str__(self):
+        return f"""{self.name.upper()} \n--------------\nage: {self.age}\nid: {self.school_id}
+        """
