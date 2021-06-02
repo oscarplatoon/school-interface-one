@@ -1,25 +1,22 @@
-#staff.py
-# from classes.person import Person
 import csv
-import os
-with open('data/staff.csv') as csv_file:
-    csv_reader = csv.reader(csv_file)
-    
-    for row in csv_reader:
-        print(row)
-        # print(', '.join(row))
+import os.path
+from classes.person import Person
 
-class Staff:
-    def __init__(self, name, age, role, employee_id, password):
-        self.name = name 
-        self.age = age         
-        self.role = role
+class Staff(Person):
+
+    def __init__(self, name, age, password, role, employee_id):
+        super().__init__(name, age, password, role)
         self.employee_id = employee_id
-        self.password = password
-        # self.staff = Staff.all_staff()
 
-Staff.all_staff()
+    @classmethod
+    def all_staff(cls):
+        staff = []
+        my_path = os.path.abspath(os.path.dirname(__file__))
+        path = os.path.join(my_path, "../data/staff.csv")
 
+        with open(path) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                staff.append(Staff(**dict(row)))
 
-# staff_info = {'name' : 'Diana', 'password' : 'password', 'school_id' : 12345, 'age' : 17, 'role' : 'Student'}
-# Staff(**staff_info)
+        return staff
